@@ -68,6 +68,7 @@
             align-items: center;
         }
 
+        /* Nav logo styles - these remain for the top navigation */
         .logo-container {
             display: flex;
             align-items: center;
@@ -76,7 +77,7 @@
             animation: fadeInUp 1s ease-out 1s forwards;
         }
 
-        .logo-img {
+        .logo-img { /* This applies to the nav logo unless overridden */
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -141,8 +142,20 @@
             gap: 20px; /* Space between logo and text */
         }
 
+        /* New styles for the logo in the hero section */
         .hero-title-wrapper .logo-img {
-            animation: morphText 2s ease-out 1.5s forwards; /* Apply animation to logo too */
+            /* Adjust these values to match the visual size of the h1 text */
+            width: clamp(4rem, 8vw, 12rem); /* Match h1 font-size clamp */
+            height: clamp(4rem, 8vw, 12rem); /* Match h1 font-size clamp */
+            
+            /* You can keep or remove these based on if you want it circular or to blend */
+            border-radius: 50%; 
+            object-fit: cover;
+            border: 2px solid #4a90e2;
+            box-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+
+            /* Animation specific to this logo */
+            animation: morphText 2s ease-out 1.5s forwards;
             opacity: 0;
             transform: translateY(50px) scale(0.8);
         }
@@ -151,9 +164,9 @@
             font-size: clamp(4rem, 8vw, 12rem);
             font-weight: 900;
             letter-spacing: -0.05em;
+            /* Removed margin-bottom here, it's now on hero-title-wrapper */
             opacity: 0;
             transform: translateY(50px);
-            animation: morphText 2s ease-out 1.5s forwards;
             background: linear-gradient(45deg, #4a90e2, #a8c0ea, #ffffff);
             background-size: 300% 300%;
             -webkit-background-clip: text;
@@ -442,13 +455,20 @@
                 align-items: center;
             }
 
+            /* Adjust nav logo for small screens */
             .logo-text {
                 font-size: 1.2rem;
             }
 
-            .logo-img {
+            .logo-img { /* This specific selector still applies to the nav logo */
                 width: 30px;
                 height: 30px;
+            }
+
+            /* Adjust hero logo for small screens */
+            .hero-title-wrapper .logo-img {
+                width: clamp(3rem, 6vw, 8rem); /* Match section title size for small screens */
+                height: clamp(3rem, 6vw, 8rem); /* Match section title size for small screens */
             }
 
             .hero-title-wrapper {
@@ -467,7 +487,6 @@
         
         <div class="hero-content">
             <div class="hero-title-wrapper">
-                <!-- Keep the logo-img here, it will get the animation directly -->
                 <img src="logo.png" alt="Logo" class="logo-img">
                 <h1>potatonot</h1>
             </div>
