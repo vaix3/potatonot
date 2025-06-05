@@ -133,11 +133,24 @@
             position: relative;
         }
 
+        .hero-title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center horizontally */
+            margin-bottom: 1rem;
+            gap: 20px; /* Space between logo and text */
+        }
+
+        .hero-title-wrapper .logo-img {
+            animation: morphText 2s ease-out 1.5s forwards; /* Apply animation to logo too */
+            opacity: 0;
+            transform: translateY(50px) scale(0.8);
+        }
+
         .hero-content h1 {
             font-size: clamp(4rem, 8vw, 12rem);
             font-weight: 900;
             letter-spacing: -0.05em;
-            margin-bottom: 1rem;
             opacity: 0;
             transform: translateY(50px);
             animation: morphText 2s ease-out 1.5s forwards;
@@ -437,6 +450,11 @@
                 width: 30px;
                 height: 30px;
             }
+
+            .hero-title-wrapper {
+                flex-direction: column; /* Stack logo and text on smaller screens */
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -448,9 +466,10 @@
         <div class="floating-element"></div>
         
         <div class="hero-content">
-            <div class="logo-container">
+            <div class="hero-title-wrapper">
+                <!-- Keep the logo-img here, it will get the animation directly -->
                 <img src="logo.png" alt="Logo" class="logo-img">
-                <div class="logo-text"><h1>potatonot</h1></div>
+                <h1>potatonot</h1>
             </div>
             <p>Games • Websites • Digital Experiences</p>
             <div class="hero-buttons">
